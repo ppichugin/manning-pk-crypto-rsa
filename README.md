@@ -15,7 +15,7 @@
 #### Project outline
 1. ✅ Calculate GCD and LCM
 2. ✅ Perform Fast Exponentiation
-3. ⏳ Build a Sieve of Eratosthenes
+3. ✅ Build a Sieve of Eratosthenes
 4. ⏳ Build an Euler’s Sieve
 5. ⏳ Factor Numbers
 6. ⏳ Test for Primality
