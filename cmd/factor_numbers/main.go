@@ -8,11 +8,11 @@ import (
 
 // Some Tests:
 // Number to factor: 8876044532898802067
-// findFactors:       0.488907 seconds
+// findFactors:       0.488225 seconds
 // 8876044532898802067
 // [1500450271 5915587277]
 //
-// findFactorsSieve: 0.084642 seconds
+// findFactorsSieve: 0.073120 seconds
 // 8876044532898802067
 // [1500450271 5915587277]
 
@@ -141,20 +141,23 @@ func sieveToPrimes(sieve []bool) []int {
 
 func findFactorsSieve(num int) []int {
 	var factors []int
-
-	// Loop through each prime number in the primes slice
-	for _, prime := range primes {
-		// While num is divisible by the current prime number
-		for num%prime == 0 {
-			// Add the prime number to factors and divide num by the prime number
-			factors = append(factors, prime)
-			num /= prime
-		}
+	if num < 0 {
+		factors = append(factors, -1)
+		num = -num
 	}
 
-	// If num is greater than 1, add num to factors
-	if num > 1 {
-		factors = append(factors, num)
+	// Pull out prime factors.
+	for _, factor := range primes {
+		if factor*factor > num {
+			if num != 1 {
+				factors = append(factors, num)
+			}
+			break
+		}
+		for num%factor == 0 {
+			factors = append(factors, factor)
+			num /= factor
+		}
 	}
 
 	return factors
