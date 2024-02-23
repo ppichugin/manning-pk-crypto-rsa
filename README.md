@@ -19,4 +19,4 @@
 4. ✅ Build an Euler’s Sieve
 5. ✅ Factor Numbers
 6. ✅ Test for Primality
-7. ⏳ Implement RSA
+7. ✅ Implement RSA
